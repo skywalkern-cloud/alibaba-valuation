@@ -25,7 +25,13 @@ from typing import List, Tuple, Dict, Any
 sys.path.insert(0, str(Path(__file__).parent))
 
 from common.core.discounting_engine import DiscountingEngine
-from stocks.09988_alibaba import model as alibaba_model
+import importlib
+try:
+    ali_model = importlib.import_module('stocks.09988_alibaba.model')
+except:
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent))
+    ali_model = importlib.import_module('stocks.09988_alibaba.model')
 
 # ========== Page Config ==========
 st.set_page_config(
@@ -389,7 +395,7 @@ def main():
         st.markdown(f"[GitHub](https://github.com/skywalkern-cloud/alibaba-valuation)")
 
     # Run valuation model
-    sotp_result, dcf_result = alibaba_model.run_valuation(
+    sotp_result, dcf_result = ali_model.run_valuation(
         rf=rf, beta=beta, tg=tg
     )
 
