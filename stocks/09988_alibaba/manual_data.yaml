@@ -4,9 +4,10 @@
 date: "2026-04-26"
 
 market:
-  current_price: 95.0
+  current_price: 131.8
   currency: "HKD"
   exchange: "HKEX"
+  last_updated: "2026-04-24"  # 最新收盘价
 
 commerce:
   GMV: 80000
